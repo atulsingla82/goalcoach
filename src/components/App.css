@@ -1,7 +1,11 @@
 .App {
   text-align: center;
 }
+.signup{
 
+  width: 600px;
+  padding: 50px;
+}
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;

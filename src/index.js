@@ -5,9 +5,9 @@ import App from './components/App';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 
-import firebaseApp from './firebase';
+import {firebaseApp} from './firebase';
 
-firebase.auth().onAuthStateChanged(user=> {
+firebaseApp.auth().onAuthStateChanged(user=> {
 
 if(user){
 
@@ -24,8 +24,8 @@ ReactDOM.render(
    
    <Router path="/" history={browserHistory}>
    <Route path="/app" component={App} />
-   <Route path="/singin" component={SignIn} />
-   <Route path="/singup" component={SignUp} />
+   <Route path="/signin" component={SignIn} />
+   <Route path="/signup" component={SignUp} />
    </Router>
 
 

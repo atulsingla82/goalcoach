@@ -8,7 +8,7 @@ export default class SignIn extends Component {
 
       <div>
       
-        SignIn
+        <h1> SignIn </h1>
       
       </div>
 
