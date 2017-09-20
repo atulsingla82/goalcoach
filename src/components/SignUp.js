@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button,Navbar, NavItem,Input} from 'react-materialize'
 import {firebaseApp} from '../firebase'
+import {Link} from 'react-router';
 
 export default class SignUp extends Component {
 
@@ -9,10 +10,12 @@ export default class SignUp extends Component {
    super(props);
 
     this.state = {
-     firstname : '',
-     lastname : '',
+     
      email : '',
-     password :''
+     password :'',
+     error:{
+     	message: ''
+     }
 
     }
    }
@@ -20,12 +23,12 @@ export default class SignUp extends Component {
    signUp(){
 
    	 console.log('this.state' , this.state);
-   	 const {firstname,lastname,email, password } = this.state;
+   	 const {email, password } = this.state;
    	 firebaseApp.auth().createUserWithEmailAndPassword(email,password)
    	 .catch(error => {
      
       console.log('error', error)
-
+      this.setState({error})
    	 })
    }
 
@@ -38,15 +41,20 @@ export default class SignUp extends Component {
       </Navbar>
 
         <div className = "signup">
-		 <Input onChange={e => this.setState({firstname:e.target.value})} s={6} label="First Name" />
-		 <Input onChange={e => this.setState({lastname:e.target.value})} s={6} label="Last Name" />
+		 
 		 <Input onChange={e => this.setState({email:e.target.value})} type="email" label="Email" s={6} />
 		 <Input onChange={e => this.setState({password:e.target.value})} type="password" label="password" s={6} />
         
 
-         <Button onClick={()=> this.signUp()} waves='light'>button</Button>
+         <Button onClick={()=> this.signUp()} waves='light'>Sign Up</Button>
           </div>
+        
+         
+         <div>{this.state.error.message}</div>
+
+         <div> <Link to={'/signin'}>  Already a user ? Sign in here </Link> </div>
         </div>
+
      
 
     );
