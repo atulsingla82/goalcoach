@@ -12,18 +12,19 @@ firebaseApp.auth().onAuthStateChanged(user=> {
 if(user){
 
 	console.log('user has signed in or signed up' , user)
+	browserHistory.push('/app');
 } else {
 
 	console.log('user needs to signin or has signed out' )
 }
-
+    browserHistory.replace('/signin');
 })
 
 
 
 ReactDOM.render(
    
-   <Router path="/" history={browserHistory}>
+   <Router path="/" history={browserHistory} component={App}>
    <Route path="/app" component={App} />
    <Route path="/signin" component={SignIn} />
    <Route path="/signup" component={SignUp} />
