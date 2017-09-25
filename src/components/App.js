@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Navbar, NavItem,Button} from 'react-materialize'
-import { firebaseApp} from '../firebase'
+import {firebaseApp} from '../firebase'
 import './App.css';
 
 export default class App extends Component {
@@ -10,14 +10,12 @@ export default class App extends Component {
  	firebaseApp.auth().signOut();
  }
  
-
-
   render() {
     return (
 
       <div>
       <Navbar brand='Goal Coach' right>
-       <NavItem href='get-started.html'>Getting started</NavItem>
+     <NavItem href='get-started.html'>Getting started</NavItem>
         
       </Navbar>
       
